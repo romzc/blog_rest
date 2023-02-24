@@ -11,10 +11,8 @@ const connection = async () => {
          * */
         mongoose.set("strictQuery", false); // evita los warnings de conexion
         await mongoose.connect("mongodb://localhost:27017/mi_blog");
-        console.log("conectador correctamen a la base de datos");
 
     } catch ( error ) {
-        console.log(error)
         throw new Error("no se puedo conectar a la base de datos")
     }
 }
