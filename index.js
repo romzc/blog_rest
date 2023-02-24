@@ -19,7 +19,8 @@ const app = express(); // creamos la app.
 app.use(cors());
 
 // convertir el body a objeto json
-app.use(express.json());
+app.use(express.json()); // recibir datos con content-type
+app.use(express.urlencoded({extended: true})) // form-urlencoded
 
 
 // cargando datos
