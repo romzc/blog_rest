@@ -1,6 +1,8 @@
 const { connection} = require('./database/connection');
 const express = require("express"); // es necesario expreser para crear la app.
 const cors = require('cors');
+// cargo las dutas del router.
+const { router } = require('./routes/article')
 
 
 const puerto = 3000;
@@ -20,10 +22,11 @@ app.use(cors());
 app.use(express.json());
 
 
+// cargando datos
+app.use("/api", router)
+
 // crear rutas
-app.get("/probando", (req, res) => {
-    return res.status(200).json({hello:" adasd "})
-})
+
 
 app.get("/", (req, res) => {
     return res.status(200).send("<h1>Hello</h1>")
